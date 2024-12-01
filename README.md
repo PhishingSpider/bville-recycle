@@ -6,13 +6,13 @@ A project of Phishing Spider LLC.
 
 ## Project roadmap
 
-[ ] Develop platform
+- [ ] Develop platform
 
-[ ] Gather data for MVP
+- [ ] Gather data for MVP
 
-[ ] Deploy platform
+- [ ] Deploy platform
 
-[ ] Spread awareness
+- [ ] Spread awareness
 
-[ ] Update as needed 
+- [ ] Update as needed 
 
