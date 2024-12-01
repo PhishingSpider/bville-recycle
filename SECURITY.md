@@ -17,4 +17,5 @@ Only the latest version is supported at any given time.
 
 Please report suspected security vulnerabilities within the "Security" tab by clicking the "Report a vulnerability" button. 
 
+We sincerely appreciate your contributions to promoting security online. 
 
