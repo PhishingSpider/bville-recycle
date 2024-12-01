@@ -15,7 +15,7 @@ Only the latest version is supported at any given time.
 
 ## Reporting a Vulnerability
 
-Please report suspected security vulnerabilities within the "Security" tab by clicking the "Report a vulnerability" button. 
+Please report suspected security vulnerabilities within the "Security" tab within GitHub by clicking the "Report a vulnerability" button. 
 
 We sincerely appreciate your contributions to promoting security online. 
 
