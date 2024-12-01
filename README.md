@@ -1,5 +1,5 @@
 # bville-recycle ♻️
-
+[![Built with Rust](static/built_with_rust.svg)](https://www.rust-lang.org)
 [![unsafe forbidden](static/unsafe_%20forbidden.svg)](https://github.com/rust-secure-code/safety-dance/)
 [![MIT license](static/license_%20MIT.svg)](/LICENSE)
 
