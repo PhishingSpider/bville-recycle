@@ -1,4 +1,8 @@
+#![forbid(unsafe_code)]
+
 #[macro_use] extern crate rocket;
+
+
 
 #[get("/")]
 fn map_root() -> &'static str {
