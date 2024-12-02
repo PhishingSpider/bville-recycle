@@ -35,7 +35,7 @@ fn rocket() -> _ {
 mod tests {
     use super::*; // Import functions and routes from the main module
 
-    #[test]
+    #[test]  // Tests the map_root function
     fn test_map_root() {
         let rocket = rocket::build()
             .mount("/", routes![map_root]);
@@ -48,8 +48,8 @@ mod tests {
         );
     }
 
-    #[test]
-    fn test_map_route() {
+    #[test]  // Tests the map function
+    fn test_map() {
         let rocket = rocket::build()
             .mount("/", routes![map]);
         let client = Client::tracked(rocket).expect("valid rocket instance");
