@@ -5,3 +5,7 @@ edition = "2021"
 
 [dependencies]
 rocket = { version = "0.5.1", features = ["tls",] }
+
+[lib]
+name = "bville_recycle"
+path = "src/lib.rs"
