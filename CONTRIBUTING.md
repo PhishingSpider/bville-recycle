@@ -20,7 +20,7 @@ If you encounter bugs, have feature suggestions, or notice any inaccuracies in t
 
 ## Code of Conduct
 
-By contributing, you agree to follow our Code of Conduct.
+By contributing, you agree to follow the  Code of Conduct.
 
 ## Development Standards
 
