@@ -2,8 +2,7 @@
 
 #[macro_use] extern crate rocket;
 
-use rocket::local::blocking::Client; // Import the blocking client for testing
-use rocket::http::Status; // Import HTTP status for response checks
+
 
 #[get("/")]
 fn map_root() -> &'static str {
@@ -34,6 +33,8 @@ fn rocket() -> _ {
 #[cfg(test)] // Ensure this block is only included during testing
 mod tests {
     use super::*; // Import functions and routes from the main module
+    use rocket::local::blocking::Client; // Import the blocking client for testing
+    use rocket::http::Status; // Import HTTP status for response checks
 
     #[test]  // Tests the map_root function
     fn test_map_root() {
