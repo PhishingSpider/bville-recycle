@@ -17,3 +17,6 @@ All authentication-related data, and all non-public user profile data, must be p
 ## Database
 This app must use MariaDB with its TDE feature. 
 
+## Testing
+
+This project aspires to align with both test-driven development (TDD) as well as the "Rugged" software principles: 
