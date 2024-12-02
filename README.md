@@ -16,7 +16,7 @@ A project of [Phishing Spider LLC](https://github.com/PhishingSpider).
 - **Maps:** OpenStreetMap (with attribution and compliance)
 
 ## Project Roadmap
-1. [*] Compose [REQUIREMENTS.md](./REQUIREMENTS.md)
+1. [x] Compose [REQUIREMENTS.md](./REQUIREMENTS.md)
 2. [ ] Develop platform
 3. [ ] Gather data for MVP (identify key recycling sites and related information)
 4. [ ] Test, optimize, and audit the platform
