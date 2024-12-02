@@ -25,7 +25,7 @@ A project of [Phishing Spider LLC](https://github.com/PhishingSpider).
 7. [ ] Update and maintain the platform as needed
 
 ## Contributing
-Contributions are welcome! Please review our [CONTRIBUTING.md](./CONTRIBUTING.md) and [CODE_OF_CONDUCT](./CODE_OF_CONDUCT.md) files for guidelines.
+Contributions are welcome! Please review our [CONTRIBUTING.md](./CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) files for guidelines.
 
 ## License
 This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
