@@ -24,10 +24,14 @@ By contributing, you agree to follow the  Code of Conduct.
 
 ## Development Standards
 
-    Follow Test-Driven Development (TDD) principles.
-    Write clean and maintainable code.
-    Avoid using unsafe Rust features.
-    Adhere to our security policies, including implementing encryption as specified in requirements.md.
+* Follow Test-Driven Development (TDD) principles.
+* Write clean and maintainable code.
+* Avoid using unsafe Rust features.
+* Adhere to our security policies, including implementing encryption as specified in requirements.md.
+
+## License
+
+By contributing to this repository, you agree to have your contributions be licensed under the repository's [LICENSE](./LICENSE) as well. 
 
 ## Need Help?
 
