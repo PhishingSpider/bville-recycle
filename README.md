@@ -3,25 +3,29 @@
 [![unsafe forbidden](static/unsafe_%20forbidden.svg)](https://github.com/rust-secure-code/safety-dance/)
 [![MIT license](static/license_%20MIT.svg)](/LICENSE)
 
-A Rust-based web app to show up-to-date information on publicly-available recycling programs within the Bartlesville, OK city limits. 
+A Rust-based web app to show up-to-date information on publicly-available recycling programs within the Bartlesville, OK city limits.
 
-A project of [Phishing Spider LLC](https://github.com/PhishingSpider). 
+**Project Purpose:** Promote environmental sustainability by making recycling more accessible and user-friendly for residents of Bartlesville, OK through the use of information aggregation on local recycling programs. 
 
-## Project roadmap
+A project of [Phishing Spider LLC](https://github.com/PhishingSpider).
 
-- [ ] Gather [requirements](./requirements.md)
+## Technology Stack
+- **Programming Language:** Rust
+- **Database:** MariaDB (with Transparent Data Encryption - TDE)
+- **Frontend Framework:** TBD
+- **Maps:** OpenStreetMap (with attribution and compliance)
 
-- [ ] Develop platform
+## Project Roadmap
+1. [ ] Gather [requirements](./requirements.md)
+2. [ ] Develop platform
+3. [ ] Gather data for MVP (identify key recycling sites and related information)
+4. [ ] Test, optimize, and audit the platform
+5. [ ] Deploy platform
+6. [ ] Spread awareness
+7. [ ] Update and maintain the platform as needed
 
-- [ ] Gather data for MVP
+## Contributing
+Contributions are welcome! Please review our [CONTRIBUTING.md](./CONTRIBUTING.md) file for guidelines.
 
-- [ ] Test, optimize, and audit the platform
-
-- [ ] Deploy platform
-
-- [ ] Spread awareness
-
-- [ ] Update as needed 
-
-
-
+## License
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
