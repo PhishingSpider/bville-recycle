@@ -13,6 +13,11 @@ pub fn map() -> &'static str {
     "Map of Bartlesville recycling options"
 }
 
+#[get("/about")]
+pub fn about() -> &'static str {
+    "About Bville Recycle"
+}
+
 pub fn rocket() -> rocket::Rocket<rocket::Build> {
-    rocket::build().mount("/", routes![map_root, map])
+    rocket::build().mount("/", routes![map_root, map, about])
 }
