@@ -29,7 +29,10 @@ A project of [Phishing Spider LLC](https://github.com/PhishingSpider).
 After cloning the repo. Set up the MariaDB database. Ensure you have a user set up with non-default credentials (did I mention non-default?) which match those listed in [Rocket.toml](./Rocket.toml)
 
 ```sql
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
 CREATE DATABASE bville_recycle;
+GRANT ALL PRIVILEGES ON bville_recycle.* TO 'username'@'localhost';
+FLUSH PRIVILEGES;
 ```
 
 
