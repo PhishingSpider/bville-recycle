@@ -40,7 +40,7 @@ pub async fn db_test(pool: &State<Pool<MySql>>) -> &'static str {
 
 // Attach the database pool and configure routes
 pub async fn rocket() -> Rocket<Build> {
-    let pool = Pool::<MySql>::connect("mysql://username:password@localhost/bville_recycle")
+    let pool = Pool::<MySql>::connect("mysql://runner:password@localhost/bville_recycle")
         .await
         .expect("Failed to connect to database");
 

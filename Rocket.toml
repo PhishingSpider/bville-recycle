@@ -2,7 +2,7 @@
 # Also, avoid pushing actual credentials to GitHub.
 
 [default]  
-bville_db = { url = "mysql://username:password@localhost/bville_recycle" }
+bville_db = { url = "mysql://runner:password@localhost/bville_recycle" }
 
 [global]
 log_level = "critical"
