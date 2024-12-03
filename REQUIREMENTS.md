@@ -27,7 +27,7 @@ Users must be able to:
   - Align with OWASP best practices for web application security.
 
 ## Database
-- Use MariaDB with Transparent Data Encryption (TDE) to secure all stored data.
+- Use MariaDB
 - Regularly encrypt backups and ensure they align with the database's encryption strategy.
 
 ## Testing
