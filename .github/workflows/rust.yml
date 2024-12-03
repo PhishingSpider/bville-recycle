@@ -8,15 +8,34 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  DATABASE_URL: "mysql://${{ secrets.DB_USER }}:${{ secrets.DB_PASSWORD }}@localhost/bville_recycle"
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+
+    - name: Set up MariaDB
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y mariadb-server
+        sudo service mysql start
+        mysql -e "CREATE DATABASE bville_recycle;"
+        mysql -e "CREATE USER '${{ secrets.DB_USER }}'@'localhost' IDENTIFIED BY '${{ secrets.DB_PASSWORD }}';"
+        mysql -e "GRANT ALL PRIVILEGES ON bville_recycle.* TO '${{ secrets.DB_USER }}'@'localhost';"
+        mysql -e "FLUSH PRIVILEGES;"
+
+    - name: Build the Project
       run: cargo build --verbose
-    - name: Run tests
+
+    - name: Run Tests
       run: cargo test --verbose
