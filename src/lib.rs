@@ -1,3 +1,5 @@
+// src/lib.rs
+
 #![forbid(unsafe_code)]
 
 #[macro_use]

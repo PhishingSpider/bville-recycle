@@ -1,8 +1,7 @@
-# REMINDER: Change away from default creds before production!!!
-# Also, avoid pushing actual credentials to GitHub.
+# Rocket.toml
 
 [default]  
-bville_db = { url = "mysql://runner:password@localhost/bville_recycle" }
+bville_db = { url = "${DATABASE_URL}" }
 
 [global]
 log_level = "critical"
