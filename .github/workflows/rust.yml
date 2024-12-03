@@ -29,10 +29,10 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y mariadb-server
         sudo service mysql start
-        mysql -e "CREATE DATABASE bville_recycle;"
-        mysql -e "CREATE USER '${{ secrets.DB_USER }}'@'localhost' IDENTIFIED BY '${{ secrets.DB_PASSWORD }}';"
-        mysql -e "GRANT ALL PRIVILEGES ON bville_recycle.* TO '${{ secrets.DB_USER }}'@'localhost';"
-        mysql -e "FLUSH PRIVILEGES;"
+        sudo mysql -e "CREATE DATABASE bville_recycle;"
+        sudo mysql -e "CREATE USER '${{ secrets.DB_USER }}'@'localhost' IDENTIFIED BY '${{ secrets.DB_PASSWORD }}';"
+        sudo mysql -e "GRANT ALL PRIVILEGES ON bville_recycle.* TO '${{ secrets.DB_USER }}'@'localhost';"
+        sudo mysql -e "FLUSH PRIVILEGES;"
 
     - name: Build the Project
       run: cargo build --verbose
