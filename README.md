@@ -11,7 +11,7 @@ A project of [Phishing Spider LLC](https://github.com/PhishingSpider).
 
 ## Technology Stack
 - **Programming Language:** Rust
-- **Database:** MariaDB (with Transparent Data Encryption - TDE)
+- **Database:** MariaDB 
 - **Frontend Framework:** TBD
 - **Maps:** OpenStreetMap (with attribution and compliance)
 
