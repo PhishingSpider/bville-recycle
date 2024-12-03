@@ -21,8 +21,17 @@ A project of [Phishing Spider LLC](https://github.com/PhishingSpider).
 3. [ ] Gather data for MVP (identify key recycling sites and related information)
 4. [ ] Test, optimize, and audit the platform
 5. [ ] Deploy platform
+    1. [ ] Ensure all administrative credentials get changed away from defaults. 
 6. [ ] Spread awareness
 7. [ ] Update and maintain the platform as needed
+
+## Setup
+After cloning the repo. Set up the MariaDB database. Ensure you have a user set up with non-default credentials (did I mention non-default?) which match those listed in [Rocket.toml](./Rocket.toml)
+
+```sql
+CREATE DATABASE bville_recycle;
+```
+
 
 ## Contributing
 Contributions are welcome! Please review our [CONTRIBUTING.md](./CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) files for guidelines.

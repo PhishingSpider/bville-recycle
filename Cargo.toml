@@ -5,7 +5,10 @@ edition = "2021"
 
 [dependencies]
 rocket = { version = "0.5.1", features = ["tls",] }
+sqlx = { version = "0.8.2", features = ["runtime-tokio-native-tls", "mysql"] }
+tokio = { version = "1.42.0", features = ["full"] }
 
 [lib]
 name = "bville_recycle"
 path = "src/lib.rs"
+
