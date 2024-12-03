@@ -26,7 +26,8 @@ A project of [Phishing Spider LLC](https://github.com/PhishingSpider).
 7. [ ] Update and maintain the platform as needed
 
 ## Setup
-After cloning the repo. Set up the MariaDB database. Ensure you have a user set up with non-default credentials (did I mention non-default?) which match those listed in [Rocket.toml](./Rocket.toml)
+After cloning the repo. Set up the MariaDB database. Ensure you have a user set up with non-default credentials (did I mention non-default?) which match those listed in [Rocket.toml](./Rocket.toml) and and [src/lib.rs `async fn`](./src/lib.rs). 
+
 
 ```sql
 CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
