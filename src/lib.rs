@@ -7,9 +7,9 @@ extern crate rocket;
 
 use rocket::{Build, Rocket, State};
 use sqlx::{MySql, Pool};
+use rocket::fairing::AdHoc;
 
-
-//Route handlers
+// Route handlers
 #[get("/")]
 pub fn map_root() -> &'static str {
     "Map of Bartlesville recycling options"
@@ -42,11 +42,14 @@ pub async fn db_test(pool: &State<Pool<MySql>>) -> &'static str {
 
 // Attach the database pool and configure routes
 pub async fn rocket() -> Rocket<Build> {
-    let pool = Pool::<MySql>::connect("mysql://runner:password@localhost/bville_recycle")
-        .await
-        .expect("Failed to connect to database");
-
     rocket::build()
-        .manage(pool)  // Add the pool as a Rocket state
+        .attach(AdHoc::try_on_ignite("Database", |rocket| async {
+            let database_url = rocket.figment().extract_inner::<String>("bville_db.url")
+                .expect("Database URL must be set in Rocket.toml or environment");
+            let pool = Pool::<MySql>::connect(&database_url).await
+                .expect("Failed to connect to database");
+
+            Ok(rocket.manage(pool))
+        }))
         .mount("/", routes![map_root, map, about, db_test])
 }
