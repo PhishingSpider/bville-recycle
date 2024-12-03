@@ -7,7 +7,8 @@ extern crate rocket;
 
 use rocket::{Build, Rocket, State};
 use sqlx::{MySql, Pool};
-use rocket::fairing::AdHoc;
+// use rocket::fairing::AdHoc;
+use std::env;
 
 // Route handlers
 #[get("/")]
@@ -42,14 +43,12 @@ pub async fn db_test(pool: &State<Pool<MySql>>) -> &'static str {
 
 // Attach the database pool and configure routes
 pub async fn rocket() -> Rocket<Build> {
-    rocket::build()
-        .attach(AdHoc::try_on_ignite("Database", |rocket| async {
-            let database_url = rocket.figment().extract_inner::<String>("bville_db.url")
-                .expect("Database URL must be set in Rocket.toml or environment");
-            let pool = Pool::<MySql>::connect(&database_url).await
-                .expect("Failed to connect to database");
+    let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
+    let pool = Pool::<MySql>::connect(&database_url)
+        .await
+        .expect("Failed to connect to database");
 
-            Ok(rocket.manage(pool))
-        }))
+    rocket::build()
+        .manage(pool)  // Add the pool to the Rocket state
         .mount("/", routes![map_root, map, about, db_test])
 }
