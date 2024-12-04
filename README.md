@@ -114,7 +114,7 @@ To ensure everything is set up correctly:
 cargo test
 ```
 
-You're all set! If you encounter any issues, check our CONTRIBUTING.md for support or open an issue.
+You're all set! If you encounter any issues, check our [CONTRIBUTING.md](./CONTRIBUTING.md) for support or open an issue.
 
 ## Contributing
 Contributions are welcome! Please review our [CONTRIBUTING.md](./CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) files for guidelines.
