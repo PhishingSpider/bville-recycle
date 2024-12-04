@@ -2,7 +2,7 @@
 
 use bville_recycle::rocket;
 use dotenvy::dotenv;
-use rocket::http::Status; // Import HTTP status for response checks
+use rocket::http::Status; 
 use rocket::local::asynchronous::Client as AsyncClient;
 use sqlx::MySqlPool;
 
@@ -62,7 +62,7 @@ async fn test_db_connection() {
 
 #[tokio::test]  // Tests if the .env file loads
 async fn test_load_env() {
-    dotenv().expect("Failed to load .env file"); // Load environment variables from .env
+    dotenv().expect("Failed to load .env file"); 
 
     let database_url = std::env::var("DATABASE_URL").expect("DATABASE_URL not set in .env");
 

@@ -3,7 +3,7 @@
 #![forbid(unsafe_code)]
 
 use bville_recycle::rocket as app_rocket;
-use rocket::launch; // Rename the imported function
+use rocket::launch;
 
 #[launch]
 async fn rocket() -> _ {

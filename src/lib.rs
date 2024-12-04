@@ -8,7 +8,6 @@ extern crate rocket;
 use dotenvy::dotenv;
 use rocket::{Build, Rocket, State};
 use sqlx::{MySql, Pool};
-// use rocket::fairing::AdHoc;
 use std::env;
 
 // Route handlers
