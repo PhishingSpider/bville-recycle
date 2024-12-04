@@ -1,6 +1,6 @@
 // tests/unsafe_check.rs
 
-#![forbid(unsafe_code)] 
+#![forbid(unsafe_code)]
 
 use std::fs;
 use glob::glob;
@@ -14,20 +14,21 @@ fn check_for_forbid_unsafe_code() {
     let mut files_missing_attribute = Vec::new();
 
     // Recursively search for all `.rs` files starting from the root directory
-    for entry in glob(&format!("{}/**/*.rs", root_directory)).expect("Failed to read glob pattern") {
-        if let Ok(path) = entry {
-            // Read the file contents
-            let contents = fs::read_to_string(&path).expect("Could not read file");
+    for path in glob(&format!("{}/**/*.rs", root_directory))
+        .expect("Failed to read glob pattern")
+        .flatten()
+    {
+        // Read the file contents
+        let contents = fs::read_to_string(&path).expect("Could not read file");
 
-            // Skip files in `target` and `node_modules` directories, if any
-            if path.to_string_lossy().contains("target") || path.to_string_lossy().contains("node_modules") {
-                continue;
-            }
+        // Skip files in `target` and `node_modules` directories, if any
+        if path.to_string_lossy().contains("target") || path.to_string_lossy().contains("node_modules") {
+            continue;
+        }
 
-            // Check if the file contains the `#![forbid(unsafe_code)]` attribute
-            if !contents.contains("#![forbid(unsafe_code)]") {
-                files_missing_attribute.push(path);
-            }
+        // Check if the file contains the `#![forbid(unsafe_code)]` attribute
+        if !contents.contains("#![forbid(unsafe_code)]") {
+            files_missing_attribute.push(path);
         }
     }
 
