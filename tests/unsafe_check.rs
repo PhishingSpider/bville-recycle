@@ -3,7 +3,6 @@
 #![forbid(unsafe_code)] 
 
 use std::fs;
-use std::path::Path;
 use glob::glob;
 
 #[test]
