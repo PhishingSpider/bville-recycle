@@ -17,5 +17,7 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+      - name: Install Clippy
+        run: rustup component add clippy
       - name: Check for Unsafe Code
-        run: cargo build --all-targets --all-features --forbid unsafe-code
+        run: cargo clippy --all-targets --all-features -- --deny=unsafe_code
