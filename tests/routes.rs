@@ -1,9 +1,9 @@
 // tests/routes.rs
 
 use bville_recycle::rocket;
+use dotenvy::dotenv;
 use rocket::http::Status; // Import HTTP status for response checks
 use rocket::local::asynchronous::Client as AsyncClient;
-// use rocket::local::blocking::Client as BlockClient; // Import the blocking client for testing // Import the rocket function from the library
 use sqlx::MySqlPool;
 
 #[tokio::test]  // Tests the map_root function "/"
@@ -42,8 +42,8 @@ async fn test_about() {
     )
 }
 
-#[tokio::test]  // Use tokio for async tests
-async fn test_db_connection() {
+#[tokio::test]  // Tests the Database connection
+async fn test_db_connection() {    
     let rocket = rocket().await;
     let client = AsyncClient::tracked(rocket).await.expect("valid rocket instance");
     
@@ -58,5 +58,14 @@ async fn test_db_connection() {
         .expect("Query execution failed");
 
     assert_eq!(row.0, 1, "Database connection test failed")
+}
+
+#[tokio::test]  // Tests if the .env file loads
+async fn test_load_env() {
+    dotenv().expect("Failed to load .env file"); // Load environment variables from .env
+
+    let database_url = std::env::var("DATABASE_URL").expect("DATABASE_URL not set in .env");
+
+    println!("Loaded DATABASE_URL: {:?}", database_url);
 }
 

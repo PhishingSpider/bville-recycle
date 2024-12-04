@@ -5,6 +5,7 @@
 #[macro_use]
 extern crate rocket;
 
+use dotenvy::dotenv;
 use rocket::{Build, Rocket, State};
 use sqlx::{MySql, Pool};
 // use rocket::fairing::AdHoc;
@@ -43,6 +44,9 @@ pub async fn db_test(pool: &State<Pool<MySql>>) -> &'static str {
 
 // Attach the database pool and configure routes
 pub async fn rocket() -> Rocket<Build> {
+    // Load .env if it exists
+    dotenv().ok();
+
     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
     let pool = Pool::<MySql>::connect(&database_url)
         .await

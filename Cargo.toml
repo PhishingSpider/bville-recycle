@@ -6,6 +6,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+dotenvy = "0.15"
 rocket = { version = "0.5.1", features = ["tls",] }
 sqlx = { version = "0.8.2", features = ["runtime-tokio-native-tls", "mysql"] }
 tokio = { version = "1.42.0", features = ["full"] }

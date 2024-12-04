@@ -168,6 +168,7 @@ dependencies = [
 name = "bville-recycle"
 version = "0.1.0"
 dependencies = [
+ "dotenvy",
  "rocket",
  "sqlx",
  "tokio",
