@@ -169,6 +169,7 @@ name = "bville-recycle"
 version = "0.1.0"
 dependencies = [
  "dotenvy",
+ "glob",
  "rocket",
  "sqlx",
  "tokio",

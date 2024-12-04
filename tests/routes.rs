@@ -1,5 +1,7 @@
 // tests/routes.rs
 
+#![forbid(unsafe_code)] 
+
 use bville_recycle::rocket;
 use dotenvy::dotenv;
 use rocket::http::Status; 
