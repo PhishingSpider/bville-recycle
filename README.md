@@ -5,7 +5,7 @@
 
 
 [![Cargo Tests](https://img.shields.io/github/actions/workflow/status/PhishingSpider/bville-recycle/rust.yml?label=Rust%20tests&logo=github)](https://github.com/PhishingSpider/bville-recycle/actions/workflows/rust.yml)
-[![Clippy Checks](https://img.shields.io/github/actions/workflow/status/PhishingSpider/bville-recycle/rust-clippy.yml?label=Clippy%20checks&logo=github)](https://github.com/PhishingSpider/bville-recycle/actions/workflows/clippy.yml)
+[![Clippy Checks](https://img.shields.io/github/actions/workflow/status/PhishingSpider/bville-recycle/rust-clippy.yml?label=Clippy%20checks&logo=github)](https://github.com/PhishingSpider/bville-recycle/actions/workflows/rust-clippy.yml)
 
 
 A Rust-based web app to show up-to-date information on publicly-available recycling programs within the Bartlesville, OK city limits.
