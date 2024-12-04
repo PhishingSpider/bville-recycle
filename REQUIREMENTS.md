@@ -4,7 +4,7 @@
 Users must be able to:
 - **Sign Up**:
   - Create a unique username and passphrase (minimum 16 characters with at least one uppercase letter, one lowercase letter, one number, and one special character).
-  - Set up at least two different MFA methods (U2F, TOTP, email, recovery phrase). Users may use only U2F keys if they have two or more registered.
+  - Set up at least two different MFA methods (U2F, TOTP, email, recovery phrase). However, users may choose to use only U2F keys if they have two or more registered.
 - **Manage Account**:
   - Update profile information: name, username, passphrase, MFA methods (subject to MFA minimums), profile picture, and preferred color mode (light, gray, dark, high-contrast).
 - **Delete Account**:
