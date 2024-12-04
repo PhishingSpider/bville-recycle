@@ -1,11 +1,12 @@
 # bville-recycle ♻️
 [![Built with Rust](static/built_with_rust.svg)](https://www.rust-lang.org)
-[![unsafe forbidden](static/unsafe_%20forbidden.svg)](https://github.com/rust-secure-code/safety-dance/)
 [![MIT license](static/license_%20MIT.svg)](/LICENSE)
 
 
 [![Cargo Tests](https://img.shields.io/github/actions/workflow/status/PhishingSpider/bville-recycle/rust.yml?label=Rust%20tests&logo=github)](https://github.com/PhishingSpider/bville-recycle/actions/workflows/rust.yml)
 [![Clippy Checks](https://img.shields.io/github/actions/workflow/status/PhishingSpider/bville-recycle/rust-clippy.yml?label=Clippy%20checks&logo=github)](https://github.com/PhishingSpider/bville-recycle/actions/workflows/rust-clippy.yml)
+[![Unsafe Forbidden](https://img.shields.io/github/actions/workflow/status/PhishingSpider/bville-recycle/unsafe.yml?label=unsafe%20forbidden&logo=github)](https://github.com/PhishingSpider/bville-recycle/actions/workflows/unsafe.yml)
+
 
 
 A Rust-based web app to show up-to-date information on publicly-available recycling programs within the Bartlesville, OK city limits.
