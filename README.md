@@ -26,16 +26,95 @@ A project of [Phishing Spider LLC](https://github.com/PhishingSpider).
 7. [ ] Update and maintain the platform as needed
 
 ## Setup
-After cloning the repo. Set up the MariaDB database. Ensure you have a user set up with non-default credentials (did I mention non-default?) which match those listed in [Rocket.toml](./Rocket.toml) and and [src/lib.rs `rocket()`](./src/lib.rs). 
 
+Follow these steps to get started with `bville-recycle`:
+
+---
+
+### Prerequisites
+
+Before you begin, ensure the following:
+1. **Rust Installed:**
+   - Install Rust using [rustup](https://rustup.rs/):
+     ```bash
+     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+     ```
+   - Verify installation:
+     ```bash
+     rustc --version
+     cargo --version
+     ```
+
+2. **MariaDB Installed:**
+   - Follow the [MariaDB installation guide](https://mariadb.org/download/), or use your system’s package manager.
+     Example for Ubuntu:
+     ```bash
+     sudo apt update
+     sudo apt install mariadb-server
+     ```
+
+3. **Git Installed:**
+   - Ensure Git is installed. Example for Ubuntu:
+     ```bash
+     sudo apt install git
+     ```
+   - Check installation:
+     ```bash
+     git --version
+     ```
+
+---
+
+### Step 1: Clone the Repository
+Open a terminal and run:
+```bash
+git clone https://github.com/PhishingSpider/bville-recycle.git
+cd bville-recycle
+```
+
+### Step 2: Configure Your Environment
+Create a `.env` file in the project root with your MariaDB credentials. Use non-default credentials for better security:
+```
+DATABASE_URL=mysql://your_username:your_password@localhost/bville_recycle
+```
+
+### Step 3: Set Up the Database
+
+Open the MariaDB command-line client and run the following commands:
 
 ```sql
-CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
 CREATE DATABASE bville_recycle;
-GRANT ALL PRIVILEGES ON bville_recycle.* TO 'username'@'localhost';
+CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
+GRANT ALL PRIVILEGES ON bville_recycle.* TO 'your_username'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
+If you're unsure, refer to the `Set up MariaDB` section of our [GitHub Actions workflow for Rust](./.github/workflows/rust.yml) for a practical example.
+
+### Step 4: Build and Run the Application
+
+Build the project:
+
+```bash
+cargo build
+```
+
+Run the application: 
+
+```bash
+cargo run
+```
+
+The application will start, and you can access it locally at http://localhost:8000. (TLS pending)
+
+### Step 5: Run Tests (Optional)
+
+To ensure everything is set up correctly:
+```bash
+cargo test
+```
+
+You're all set! If you encounter any issues, check our CONTRIBUTING.md for support or open an issue.
 
 ## Contributing
 Contributions are welcome! Please review our [CONTRIBUTING.md](./CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) files for guidelines.
