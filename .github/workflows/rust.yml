@@ -41,9 +41,6 @@ jobs:
       run: |
         echo "DATABASE_URL=mysql://${{ secrets.DB_USER }}:${{ secrets.DB_PASSWORD }}@localhost/bville_recycle" > .env
 
-    - name: Run Database Migrations (if any)
-      run: cargo run --bin migration -- up  # Adjust this to your migration setup if applicable
-
     - name: Build the Project
       run: cargo build --verbose
 
