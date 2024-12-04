@@ -1,6 +1,4 @@
-# .github/workflows/rust.yml
-
-name: Rust
+name: Rust CI
 
 on:
   push:
@@ -10,7 +8,6 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  DATABASE_URL: "mysql://${{ secrets.DB_USER }}:${{ secrets.DB_PASSWORD }}@localhost/bville_recycle"
 
 jobs:
   build:
@@ -40,10 +37,15 @@ jobs:
         sudo mysql -e "GRANT ALL PRIVILEGES ON bville_recycle.* TO '${{ secrets.DB_USER }}'@'localhost';"
         sudo mysql -e "FLUSH PRIVILEGES;"
 
+    - name: Create .env File
+      run: |
+        echo "DATABASE_URL=mysql://${{ secrets.DB_USER }}:${{ secrets.DB_PASSWORD }}@localhost/bville_recycle" > .env
+
+    - name: Run Database Migrations (if any)
+      run: cargo run --bin migration -- up  # Adjust this to your migration setup if applicable
+
     - name: Build the Project
       run: cargo build --verbose
 
     - name: Run Tests
-      env:
-        DATABASE_URL: "mysql://${{ secrets.DB_USER }}:${{ secrets.DB_PASSWORD }}@localhost/bville_recycle"
       run: cargo test --verbose
