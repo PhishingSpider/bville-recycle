@@ -1,8 +1,12 @@
-// tests/basic_actions.rs
+// tests/crud.rs
 
 // This file contains tests for basic CRUD operations on the database.
 
 #![forbid(unsafe_code)]
+
+use bville_recycle::rocket;
+use rocket::local::asynchronous::Client as AsyncClient;
+use sqlx::MySqlPool;
 
 #[tokio::test]  // Tests inserting a new recycling site
 async fn test_insert_recycling_site() {
