@@ -64,10 +64,12 @@ async fn test_db_connection() {
 
 #[tokio::test]  // Tests if the .env file loads
 async fn test_load_env() {
-    dotenv().expect("Failed to load .env file"); 
+    dotenv().expect("Failed to load .env file");
 
     let database_url = std::env::var("DATABASE_URL").expect("DATABASE_URL not set in .env");
 
     println!("Loaded DATABASE_URL: {:?}", database_url);
 }
+
+
 
