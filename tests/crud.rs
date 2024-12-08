@@ -15,7 +15,7 @@ use dotenvy::dotenv;
 // use rocket::local::asynchronous::Client as AsyncClient;
 // use sqlx::MySqlPool;
 use std::env;
-//use std::process::Command;
+use std::process::Command;
 use url::Url;
 
 #[tokio::test]
@@ -54,34 +54,42 @@ async fn test_database_initialization() {
     println!("path: {}", path);
 
     // Configure test database
-        "
-        
-        "
+    let commands = [
+        {
+            println!("Updating package lists...");
+            "sudo apt-get update -y"
+        },
+        {
+            println!("Installing MariaDB server...");
+            "sudo apt-get install -y mariadb-server"
+        },
+        {
+            println!("Starting MariaDB service...");
+            "sudo service mariadb start"
+        },
+        &format!("sudo mariadb -e \"CREATE DATABASE IF NOT EXISTS {path}\""),
+        &format!("sudo mariadb -e \"DROP USER IF EXISTS '{username}'@'{host}'\""),
+        &format!("sudo mariadb -e \"CREATE USER '{username}'@'{host}'\""),
+        &format!("sudo mariadb -e \"SET PASSWORD FOR '{username}'@'{host}' = PASSWORD('{password}')\""),
+        &format!("sudo mariadb -e \"GRANT ALL PRIVILEGES ON {path}.* TO '{username}'@'{host}'\""),
+        &format!("sudo mariadb -e \"FLUSH PRIVILEGES\""),
+    ];
+
+    for cmd in commands {
+        let output = Command::new("sh")
+            .arg("-c")
+            .arg(cmd)
+            .output()
+            .expect(&format!("Failed to execute command: {}", cmd));
+
+        if !output.status.success() {
+            panic!("Command failed: {}\nError: {}", cmd, 
+                String::from_utf8_lossy(&output.stderr));
+        }
+    }
+
+
+
 
 
 }
-
-
-
-
-/* 
-#[tokio::test]  // Tests the create_map_item function "/create_map_item"
-async fn test_create_map_item() {
-    let rocket: rocket::Rocket<rocket::Build> = rocket().await;
-    let client: AsyncClient = AsyncClient::tracked(rocket).await.expect("valid rocket instance");
-    let database_url: String = std::env::var("DATABASE_URL").expect("DATABASE_URL must be set");
-        "
-        sudo apt-get update
-        sudo apt-get install -y mariadb-server
-        sudo service mariadb start
-        
-        sudo mariadb -e \"CREATE DATABASE IF NOT EXISTS test_b_r;\"
-        sudo mariadb -e \"DROP USER IF EXISTS '${{ secrets.DB_USER }}'@'localhost';\"
-        sudo mariadb -e \"CREATE USER '${{ secrets.DB_USER }}'@'localhost';\"
-        sudo mariadb -e \"SET PASSWORD FOR '${{ secrets.DB_USER }}'@'localhost' = PASSWORD('${{ secrets.DB_PASSWORD }}');\"
-        sudo mariadb -e \"GRANT ALL PRIVILEGES ON bville_recycle.* TO '${{ secrets.DB_USER }}'@'localhost';\"
-        sudo mariadb -e \"FLUSH PRIVILEGES;\"
-        """
-
-}
-*/
