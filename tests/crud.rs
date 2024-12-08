@@ -40,18 +40,13 @@ async fn test_database_initialization() {
     }
     
     let password: &str = pared_url.password().expect("Password not found in DATABASE_URL"); 
+    
     let host: &str = pared_url.host_str().expect("Host not found in DATABASE_URL");
+    
     let path: &str = pared_url.path().trim_start_matches("/");
     if path.is_empty() {
         panic!("Path (database name) not found in DATABASE_URL");
     }
-
-    // Print out the components
-    println!("scheme: {}", scheme);
-    println!("username: {}", username);
-    println!("password: {}", password);
-    println!("host: {}", host);
-    println!("path: {}", path);
 
     // Configure test database
     let commands = [
@@ -76,7 +71,7 @@ async fn test_database_initialization() {
     ];
 
     for cmd in commands {
-        let output = Command::new("sh")
+        let output: std::process::Output = Command::new("sh")
             .arg("-c")
             .arg(cmd)
             .output()
