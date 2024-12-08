@@ -173,6 +173,7 @@ dependencies = [
  "rocket",
  "sqlx",
  "tokio",
+ "url",
 ]
 
 [[package]]
