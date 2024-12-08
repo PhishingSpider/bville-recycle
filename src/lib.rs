@@ -10,7 +10,7 @@ use rocket::{Build, Rocket, State};
 use sqlx::{MySql, Pool};
 use std::env;
 
-mod db_initializer;
+pub mod db_initializer;
 
 #[get("/")]
 pub fn map_root() -> &'static str {
