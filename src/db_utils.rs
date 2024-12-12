@@ -1,5 +1,7 @@
 // src/db_utils.rs
 
+#![forbid(unsafe_code)]
+
 use dotenvy::dotenv;
 use sqlx::MySqlPool;
 use std::process::Command;
