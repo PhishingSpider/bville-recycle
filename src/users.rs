@@ -2,7 +2,6 @@
 
 #![forbid(unsafe_code)]
 
-use bville_recycle::rocket;
 use regex::Regex;
 
 pub struct Username {
@@ -12,7 +11,7 @@ pub struct Username {
 
 impl Username {
     pub fn new(username: String) -> Result<Username, &'static str> {
-        if username.chars().all(|c| c.is_alphanumeric() || c == '_') {
+        if username.chars().all(|c: char| c.is_alphanumeric() || c == '_') {
             if username.len() <= 32 {
                 Ok(Username { username })
             } else {
@@ -31,9 +30,9 @@ pub struct Email {
 
 impl Email {
     pub fn new(email: String) -> Result<Self, String> {
-        let email_regex = Regex::new(r"^[a-zA-Z\u0080-\uFFFF0-9._%+-]+@[a-zA-Z\u0080-\uFFFF0-9.-]+\.[a-zA-Z\u0080-\uFFFF]{1,}$").unwrap();
+        let email_regex: Regex = Regex::new(r"^[a-zA-Z\u0080-\uFFFF0-9._%+-]+@[a-zA-Z\u0080-\uFFFF0-9.-]+\.[a-zA-Z\u0080-\uFFFF]{1,}$").unwrap();
 
-        if email_regex.is_match(email) {
+        if email_regex.is_match(&email) {
             Ok(Self { 
                 email: email.to_string(),
             })
@@ -51,16 +50,18 @@ pub struct Password {
 impl Password {
     pub fn new(password: String) -> Result<Self, &'static str> {
         if password.len() >= 16 {
-            if password.contains() {
-
+            if password.chars().any(|c: char| c.is_uppercase()) &&
+               password.chars().any(|c: char| c.is_lowercase()) &&
+               password.chars().any(|c: char| c.is_digit(10)) &&
+               password.chars().any(|c: char| !c.is_alphanumeric()) {
+                return Ok(Self { 
+                    password: password.to_string(),
+                });
             } else {
-                Err("Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character")
+                return Err("Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character");
             }
-            Ok(Self { 
-                password: password.to_string(),
-            })
         } else {
-            Err("Password must be at least 16 characters long")
+            return Err("Password must be at least 16 characters long")
         }
     }
 }
