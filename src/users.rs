@@ -1,6 +1,8 @@
 // src/users.rs
 
 #![forbid(unsafe_code)]
+#[allow(dead_code)]  // Remove this line after implementing the User struct
+
 
 use regex::Regex;
 
@@ -66,12 +68,26 @@ impl Password {
     }
 }
 
+pub enum SecondFactor {
+    U2F {
+        // Define U2F structure here
+    },
+    TOTP {
+        // Define TOTP structure here
+    },
+    EmailCode {
+        // Define email verification code structure here
+    },
+    RecoveryCodes {
+        // Define recovery codes structure here
+    },
+}
+
 pub struct User {
     pub id: u32,
     pub username: Username,
     pub email: Email,
     pub password: Password,
-    pub second_factor: Vec<u8>,
+    pub second_factor: SecondFactor,
 }
-
 
