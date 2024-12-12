@@ -10,13 +10,13 @@
 
 #![forbid(unsafe_code)]
 
-use dotenvy::dotenv;
+use dotenvy::from_filename;
 use std::env;
 use bville_recycle::db_utils;
 
 #[tokio::test]
 async fn test_database_initialization() {
-    dotenvy::from_filename(".env.test").ok();
+    from_filename(".env.test").ok();
 
     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
 
