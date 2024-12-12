@@ -1,4 +1,4 @@
 # .gitignore
 /target
 .env
-.env.test
+# .env.test  # Uncomment this line if you want to ignore .env.test file
