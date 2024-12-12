@@ -54,16 +54,16 @@ impl Password {
         if password.len() >= 16 {
             if password.chars().any(|c: char| c.is_uppercase()) &&
                password.chars().any(|c: char| c.is_lowercase()) &&
-               password.chars().any(|c: char| c.is_digit(10)) &&
+               password.chars().any(|c: char| c.is_ascii_digit()) &&
                password.chars().any(|c: char| !c.is_alphanumeric()) {
-                return Ok(Self { 
+                Ok(Self { 
                     password: password.to_string(),
-                });
+                })
             } else {
-                return Err("Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character");
+                Err("Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character")
             }
         } else {
-            return Err("Password must be at least 16 characters long")
+            Err("Password must be at least 16 characters long")
         }
     }
 }
