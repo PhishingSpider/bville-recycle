@@ -12,6 +12,7 @@ use std::env;
 
 pub mod db_initializer;
 pub mod db_utils;
+pub mod users;
 
 #[get("/")]
 pub fn map_root() -> &'static str {
