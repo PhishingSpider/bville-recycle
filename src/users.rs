@@ -91,15 +91,3 @@ pub struct User {
     pub second_factor: SecondFactor,
 }
 
-
-pub struct TestClippy {
-    pub test: String,
-}
-
-impl TestClippy {
-    pub fn new(test: String) -> Self {
-        return Self {
-            test,
-        };
-    }
-}
